@@ -26,7 +26,7 @@ import javax.swing.JTextArea;
 
 public class DownloadManagerGUI extends JFrame {
 
-	downloadManager app = new downloadManager();
+	private downloadManager app;
 	
 	private JPanel contentPane;
 	private JTextField txtSource;
@@ -36,7 +36,7 @@ public class DownloadManagerGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -49,12 +49,17 @@ public class DownloadManagerGUI extends JFrame {
 		});
 		
 				
-	}
+	} */
 
 	/**
 	 * Create the frame.
 	 */
-	public DownloadManagerGUI() {
+	public DownloadManagerGUI(downloadManager dm) {
+		
+		this.app = dm;
+		
+		this.show();
+		
 		setTitle("Download Manager ver. 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 690, 429);
@@ -64,21 +69,21 @@ public class DownloadManagerGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtSource = new JTextField();
-		txtSource.setBounds(81, 27, 222, 20);
+		txtSource.setBounds(255, 16, 222, 20);
 		contentPane.add(txtSource);
 		txtSource.setColumns(10);
 		
 		JLabel lblSource = new JLabel("Source");
-		lblSource.setBounds(25, 27, 46, 20);
+		lblSource.setBounds(171, 16, 46, 20);
 		contentPane.add(lblSource);
 		
 		JLabel lblDestination = new JLabel("Destination");
-		lblDestination.setBounds(361, 27, 74, 20);
+		lblDestination.setBounds(171, 42, 74, 20);
 		contentPane.add(lblDestination);
 		
 		txtDestination = new JTextField();
 		txtDestination.setColumns(10);
-		txtDestination.setBounds(445, 27, 222, 20);
+		txtDestination.setBounds(255, 42, 222, 20);
 		contentPane.add(txtDestination);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -103,7 +108,7 @@ public class DownloadManagerGUI extends JFrame {
 				
 			}
 		});
-		btnAddDownload.setBounds(81, 58, 111, 23);
+		btnAddDownload.setBounds(255, 73, 111, 23);
 		contentPane.add(btnAddDownload);
 		
 		JButton btnDownload = new JButton("Download");
@@ -112,7 +117,7 @@ public class DownloadManagerGUI extends JFrame {
 				app.downloadQueue();
 			}
 		});
-		btnDownload.setBounds(212, 58, 91, 23);
+		btnDownload.setBounds(386, 73, 91, 23);
 		contentPane.add(btnDownload);
 	}
 	
